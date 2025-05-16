@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mini HTTP Client</title>
+</head>
+<body>
+  <h2>Mini HTTP Client</h2>
+
+  <label>Método:</label>
+  <select id="method">
+    <option>GET</option>
+    <option>POST</option>
+    <option>PUT</option>
+    <option>PATCH</option>
+    <option>DELETE</option>
+  </select><br><br>
+
+  <label>URL:</label>
+  <input type="text" id="url" placeholder="https://api.exemplo.com" size="50"><br><br>
+
+  <label>Corpo da requisição (JSON):</label><br>
+  <textarea id="body" rows="5" cols="50"></textarea><br>
+
+  <button onclick="enviar()">Enviar</button>
+
+  <h3>Resposta:</h3>
+  <pre id="resposta"></pre>
+
+  <script>
+    async function enviar() {
+      const method = document.getElementById('method').value;
+      const url = document.getElementById('url').value;
+      const body = document.getElementById('body').value;
+      const resposta = document.getElementById('resposta');
+
+      try {
+        const options = {
+          method,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+
+        if (['POST', 'PUT', 'PATCH'].includes(method)) {
+          options.body = body;
+        }
+
+        const res = await fetch(url, options);
+        const texto = await res.text();
+        const headers = [...res.headers.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+
+        resposta.textContent = `Status: ${res.status} ${res.statusText}\n\n${headers}\n\n${texto}`;
+      } catch (e) {
+        resposta.textContent = 'Erro: ' + e.message;
+      }
+    }
+  </script>
+</body>
+</html>
