@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(245, 245, 245);
+    color: black;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: row;
+    
+}
+input{
+
+    border: 2px solid rgb(202, 236, 243);
+    border-radius: 5px;
+    width: 90%;
+
+}
+
+textarea{
+
+    border: 2px solid rgb(202, 236, 243);
+    border-radius: 5px;
+    width:76%;
+}
+
+.container{
+    background-color: rgb(243, 202, 226);
+    height: 90%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    top: 5vh;
+    position: relative;
+    padding: 20px;
+    border: 2px solid rgb(242, 187, 221);
+}
+
+button{
+    margin-top: 30px;
+    background-color: rgb(202, 236, 243);
+    color: black;
+    border: 2px solid rgb(202, 236, 243);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+select{
+    background-color: rgb(202, 236, 243);
+    color: black;
+    border: 2px solid rgb(202, 236, 243);
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#resposta{
+    background-color: rgb(202, 236, 243);
+    color: black;
+    border: 2px solid rgb(202, 236, 243);
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 75%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height: 40vh;
+}

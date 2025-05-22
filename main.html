@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Mini HTTP Client</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
+  <div class="container">
+
   <h2>Mini HTTP Client</h2>
 
-  <label>Método:</label>
+<div id="formulario">
   <select id="method">
     <option>GET</option>
     <option>POST</option>
@@ -16,16 +19,17 @@
     <option>DELETE</option>
   </select><br><br>
 
-  <label>URL:</label>
-  <input type="text" id="url" placeholder="https://api.exemplo.com" size="50"><br><br>
-
+  <input type="text" id="url" placeholder="Digite a URL aqui" size="50"><br><br>
+</div>
+<br>
   <label>Corpo da requisição (JSON):</label><br>
-  <textarea id="body" rows="5" cols="50"></textarea><br>
+  <textarea id="body" rows="5" cols="68"></textarea><br>
 
   <button onclick="enviar()">Enviar</button>
 
   <h3>Resposta:</h3>
   <pre id="resposta"></pre>
+  </div>
 
   <script>
     async function enviar() {
@@ -48,7 +52,7 @@
 
         const res = await fetch(url, options);
         const texto = await res.text();
-        const headers = [...res.headers.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+        const headers = [...res.headers.entries()].map(([n, m]) => `${n}: ${m}`).join('\n');
 
         resposta.textContent = `Status: ${res.status} ${res.statusText}\n\n${headers}\n\n${texto}`;
       } catch (e) {
